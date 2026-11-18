@@ -1,0 +1,52 @@
+
+{
+  "benefit_category": "Vision Care Benefits",
+  "services": [
+    {
+      "service_name": "Routine eye examination",
+      "in_network": {
+        "copay": 10,
+        "frequency": "Once every 12 months"
+      },
+      "out_of_network": {
+        "reimbursement_limit": 40
+      }
+    },
+    {
+      "service_name": "Single-vision lenses",
+      "in_network": {
+        "copay": 25,
+        "frequency": "Once every 12 months"
+      },
+      "out_of_network": {
+        "reimbursement_limit": 25
+      }
+    },
+    {
+      "service_name": "Frames",
+      "in_network": {
+        "allowance": 150,
+        "frequency": "Once every 24 months"
+      },
+      "out_of_network": {
+        "reimbursement_limit": 75
+      }
+    },
+    {
+      "service_name": "Contact lenses",
+      "coverage_condition": "Instead of glasses",
+      "in_network": {
+        "allowance": 150,
+        "frequency": "Once every 12 months"
+      },
+      "out_of_network": {
+        "reimbursement_limit": 100
+      }
+    }
+  ],
+  "currency": "USD",
+  "notes": [
+    "Contact lenses are covered instead of eyeglass lenses and frames.",
+    "Out-of-network amounts are maximum reimbursement amounts."
+  ]
+}

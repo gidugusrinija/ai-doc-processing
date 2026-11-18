@@ -1,0 +1,58 @@
+
+{
+  "benefit_category": "Prescription Drug / Pharmacy Benefits",
+  "services": [
+    {
+      "service_name": "Tier 1 - Generic",
+      "retail_30_day": {
+        "copay": 10,
+        "coinsurance": null
+      },
+      "mail_order_90_day": {
+        "copay": 20,
+        "coinsurance": null
+      }
+    },
+    {
+      "service_name": "Tier 2 - Preferred brand",
+      "retail_30_day": {
+        "copay": 35,
+        "coinsurance": null
+      },
+      "mail_order_90_day": {
+        "copay": 70,
+        "coinsurance": null
+      }
+    },
+    {
+      "service_name": "Tier 3 - Non-preferred brand",
+      "retail_30_day": {
+        "copay": 70,
+        "coinsurance": null
+      },
+      "mail_order_90_day": {
+        "copay": 140,
+        "coinsurance": null
+      }
+    },
+    {
+      "service_name": "Specialty medications",
+      "retail_30_day": {
+        "copay": null,
+        "coinsurance": 30
+      },
+      "mail_order_90_day": {
+        "copay": null,
+        "coinsurance": null,
+        "availability": "Not available"
+      }
+    }
+  ],
+  "currency": "USD",
+  "notes": [
+    "Copays are per prescription fill.",
+    "Retail prescriptions are based on a 30-day supply.",
+    "Mail-order prescriptions are based on a 90-day supply.",
+    "Specialty medications require use of the designated specialty pharmacy."
+  ]
+}

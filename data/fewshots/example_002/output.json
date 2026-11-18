@@ -1,0 +1,51 @@
+
+{
+  "benefit_category": "Laboratory and Diagnostic Services",
+  "services": [
+    {
+      "service_name": "Routine laboratory tests",
+      "in_network": {
+        "copay": 20,
+        "coinsurance": null
+      },
+      "out_of_network": {
+        "copay": null,
+        "coinsurance": 40
+      }
+    },
+    {
+      "service_name": "Basic blood work",
+      "in_network": {
+        "copay": 20,
+        "coinsurance": null
+      },
+      "out_of_network": {
+        "copay": null,
+        "coinsurance": 40
+      }
+    },
+    {
+      "service_name": "Advanced diagnostic testing",
+      "in_network": {
+        "copay": null,
+        "coinsurance": 20
+      },
+      "out_of_network": {
+        "copay": null,
+        "coinsurance": 40
+      }
+    },
+    {
+      "service_name": "Outpatient X-ray",
+      "in_network": {
+        "copay": 50,
+        "coinsurance": null
+      },
+      "out_of_network": {
+        "copay": null,
+        "coinsurance": 40
+      }
+    }
+  ],
+  "currency": "USD"
+}

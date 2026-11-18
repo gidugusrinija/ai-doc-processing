@@ -1,0 +1,57 @@
+
+{
+  "benefit_category": "Outpatient Surgery Services",
+  "services": [
+    {
+      "service_name": "Ambulatory surgical center",
+      "in_network": {
+        "copay": 150,
+        "copay_unit": "per procedure",
+        "coinsurance": null
+      },
+      "out_of_network": {
+        "copay": null,
+        "coinsurance": 40
+      }
+    },
+    {
+      "service_name": "Hospital outpatient department",
+      "in_network": {
+        "copay": 250,
+        "copay_unit": "per procedure",
+        "coinsurance": null
+      },
+      "out_of_network": {
+        "copay": null,
+        "coinsurance": 40
+      }
+    },
+    {
+      "service_name": "Surgeon professional fees",
+      "in_network": {
+        "copay": null,
+        "coinsurance": 20
+      },
+      "out_of_network": {
+        "copay": null,
+        "coinsurance": 40
+      }
+    },
+    {
+      "service_name": "Anesthesia services",
+      "in_network": {
+        "copay": null,
+        "coinsurance": 20
+      },
+      "out_of_network": {
+        "copay": null,
+        "coinsurance": 40
+      }
+    }
+  ],
+  "currency": "USD",
+  "notes": [
+    "Copays are charged per procedure.",
+    "Prior authorization may be required for certain procedures."
+  ]
+}

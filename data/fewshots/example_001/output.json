@@ -1,0 +1,42 @@
+
+{
+  "benefit_category": "Emergency Room Services",
+  "services": [
+    {
+      "service_name": "Emergency room visit",
+      "in_network": {
+        "copay": 250,
+        "coinsurance": null,
+        "deductible_applies": false
+      },
+      "out_of_network": {
+        "copay": null,
+        "coinsurance": 40,
+        "deductible_applies": true
+      }
+    },
+    {
+      "service_name": "Emergency physician services",
+      "in_network": {
+        "copay": "Included in visit copay",
+        "coinsurance": null
+      },
+      "out_of_network": {
+        "copay": null,
+        "coinsurance": 40
+      }
+    },
+    {
+      "service_name": "Emergency facility services",
+      "in_network": {
+        "copay": "Included in visit copay",
+        "coinsurance": null
+      },
+      "out_of_network": {
+        "copay": null,
+        "coinsurance": 40
+      }
+    }
+  ],
+  "currency": "USD"
+}

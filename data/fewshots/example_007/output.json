@@ -1,0 +1,59 @@
+
+{
+  "benefit_category": "Dental Care Benefits",
+  "services": [
+    {
+      "service_name": "Preventive care",
+      "in_network": {
+        "coverage_percentage": 100,
+        "coinsurance": 0
+      },
+      "out_of_network": {
+        "coverage_percentage": 80,
+        "coinsurance": 20
+      }
+    },
+    {
+      "service_name": "Basic services - Fillings",
+      "in_network": {
+        "coinsurance": 20
+      },
+      "out_of_network": {
+        "coinsurance": 40
+      }
+    },
+    {
+      "service_name": "Major services - Crowns",
+      "in_network": {
+        "coinsurance": 50
+      },
+      "out_of_network": {
+        "coinsurance": 60
+      }
+    },
+    {
+      "service_name": "Root canal treatment",
+      "in_network": {
+        "coinsurance": 20
+      },
+      "out_of_network": {
+        "coinsurance": 40
+      }
+    },
+    {
+      "service_name": "Orthodontia",
+      "in_network": {
+        "coinsurance": 50,
+        "lifetime_maximum": 1500
+      },
+      "out_of_network": {
+        "coverage_status": "Not covered"
+      }
+    }
+  ],
+  "currency": "USD",
+  "notes": [
+    "Preventive services include routine oral examinations and cleanings.",
+    "Plan limitations, waiting periods and annual maximums may apply."
+  ]
+}

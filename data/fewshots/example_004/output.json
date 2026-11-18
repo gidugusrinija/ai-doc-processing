@@ -1,0 +1,56 @@
+
+{
+  "benefit_category": "Inpatient Hospital Services",
+  "services": [
+    {
+      "service_name": "Inpatient hospital facility",
+      "in_network": {
+        "copay": 500,
+        "copay_unit": "per admission",
+        "coinsurance": null
+      },
+      "out_of_network": {
+        "copay": null,
+        "coinsurance": 40
+      }
+    },
+    {
+      "service_name": "Inpatient physician services",
+      "in_network": {
+        "copay": null,
+        "coinsurance": 20
+      },
+      "out_of_network": {
+        "copay": null,
+        "coinsurance": 40
+      }
+    },
+    {
+      "service_name": "Inpatient surgery",
+      "in_network": {
+        "copay": null,
+        "coinsurance": 20
+      },
+      "out_of_network": {
+        "copay": null,
+        "coinsurance": 40
+      }
+    },
+    {
+      "service_name": "Room and board",
+      "in_network": {
+        "copay": "Included in facility copay",
+        "coinsurance": null
+      },
+      "out_of_network": {
+        "copay": null,
+        "coinsurance": 40
+      }
+    }
+  ],
+  "currency": "USD",
+  "notes": [
+    "Facility copay is charged per inpatient admission.",
+    "Prior authorization may be required for non-emergency admissions."
+  ]
+}
