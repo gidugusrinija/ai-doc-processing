@@ -17,7 +17,7 @@ llm = ChatOpenAI(
 )
 
 # Local image path
-image_path = r"C:\Users\Srinija\Downloads\lordrama.jpg"
+image_path = r"C:\SRINIJA\Downloads\lordrama.jpg"
 
 # Read image and convert to Base64
 with open(image_path, "rb") as image_file:
