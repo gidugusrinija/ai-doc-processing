@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Benefit Extraction</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Medical Benefit Extraction</h1>
+            <p>Upload medical benefit summary PDFs and extract structured information using AI.</p>
+        </header>
+
+        <main>
+            <section class="upload-section">
+                <div class="upload-box" id="uploadBox">
+                    <div class="upload-icon">📄</div>
+
+                    <h2>Upload your PDF</h2>
+                    <p>Drag and drop your PDF here or browse files</p>
+
+                    <input type="file" id="fileInput" accept=".pdf" hidden>
+
+                    <button id="browseButton" type="button">
+                        Browse Files
+                    </button>
+
+                    <p class="file-info">Only PDF files are supported</p>
+                </div>
+
+                <div id="fileDetails" class="file-details hidden">
+                    <span id="fileName"></span>
+                    <span id="fileSize"></span>
+                    <button id="removeFile" type="button">✕</button>
+                </div>
+
+                <button id="processButton" class="process-button" disabled>
+                    Process Document
+                </button>
+            </section>
+
+            <section id="statusSection" class="status-section hidden">
+                <h2>Processing Status</h2>
+                <div id="statusMessage"></div>
+            </section>
+
+            <section id="resultsSection" class="results-section hidden">
+                <h2>Extraction Results</h2>
+
+                <div class="summary-cards">
+                    <div class="summary-card">
+                        <h3>Total Pages</h3>
+                        <p id="totalPages">0</p>
+                    </div>
+
+                    <div class="summary-card">
+                        <h3>Successful</h3>
+                        <p id="successfulPages">0</p>
+                    </div>
+
+                    <div class="summary-card">
+                        <h3>Failed</h3>
+                        <p id="failedPages">0</p>
+                    </div>
+                </div>
+
+                <button id="downloadButton" class="download-button">
+                    Download JSON Results
+                </button>
+
+                <div id="pageResults"></div>
+            </section>
+        </main>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

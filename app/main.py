@@ -1,59 +1,121 @@
+import logging
+import shutil
+import uuid
 from pathlib import Path
 
-from app.pdf_processor import convert_pdf_to_images
-from app.poppler_utils import get_poppler_path
-from app.executor import process_pages_parallel
-from app.page_processor import process_single_page
+from fastapi import FastAPI, File, HTTPException, UploadFile
+
+from fastapi.responses import RedirectResponse
+
+from app.processing.document_processor import DocumentProcessor
+from fastapi.responses import RedirectResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
+
+# Project paths
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
+UPLOAD_DIR = PROJECT_ROOT / "data" / "uploads"
+OUTPUT_DIR = PROJECT_ROOT / "data" / "outputs"
+
+UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+FRONTEND_DIR = PROJECT_ROOT / "frontend"
 
 
-def main():
+# Logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(message)s",
+)
 
-    project_root = Path(__file__).parent
+logger = logging.getLogger(__name__)
 
-    pdf_path = (
-        project_root
-        / "data"
-        / "input"
-        / "medical_benefit_summary.pdf"
+
+# FastAPI application
+app = FastAPI(
+    title="Medical Benefit PDF Extraction API",
+    description="Extract structured insurance benefits from PDF documents.",
+    version="1.0.0",
+)
+
+app.mount(
+    "/static",
+    StaticFiles(directory=FRONTEND_DIR),
+    name="static"
+)
+
+@app.get("/")
+def root():
+    return FileResponse(FRONTEND_DIR / "index.html")
+
+@app.post("/api/documents/process")
+def process_document(file: UploadFile = File(...)):
+
+    # Validate uploaded file
+    if not file.filename.lower().endswith(".pdf"):
+        raise HTTPException(
+            status_code=400,
+            detail="Only PDF files are supported.",
+        )
+
+    # Generate unique document ID
+    document_id = str(uuid.uuid4())
+
+    # Save uploaded PDF
+    pdf_path = UPLOAD_DIR / f"{document_id}.pdf"
+
+    with pdf_path.open("wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+
+    logger.info(
+        "Received document: %s | ID: %s",
+        file.filename,
+        document_id,
     )
 
-    output_dir = (
-        project_root
-        / "data"
-        / "processed_pages"
-    )
+    # Create document-specific output directory
+    document_output_dir = OUTPUT_DIR / document_id
 
-    # Step 1: Detect Poppler dynamically
-    poppler_path = get_poppler_path()
-
-    print(f"Poppler path: {poppler_path}")
-
-    # Step 2: Convert PDF into images
-    pages = convert_pdf_to_images(
+    # Initialize processor
+    processor = DocumentProcessor(
         pdf_path=str(pdf_path),
-        output_dir=str(output_dir),
+        output_dir=str(document_output_dir),
         dpi=200,
-        poppler_path=poppler_path,
-    )
-
-    # Step 3: Process pages in parallel
-    results = process_pages_parallel(
-        pages=pages,
-        page_processor=process_single_page,
         max_workers=5,
     )
 
-    # Step 4: Display final results in PDF order
-    print("\nFinal Results:")
+    # Process document
+    try:
+        result = processor.process_document()
 
-    for result in results:
-        print(
-            f"Page {result['page_number']} "
-            f"| Status: {result['status']}"
+    except Exception as exc:
+        logger.exception("Document processing failed")
+
+        raise HTTPException(
+            status_code=500,
+            detail=str(exc),
         )
 
-    print("\nPipeline execution completed.")
-
-
+    return {
+        "document_id": document_id,
+        "document_name": file.filename,
+        "total_pages": result["total_pages"],
+        "successful_pages": result["successful_pages"],
+        "failed_pages": result["failed_pages"],
+        "status": (
+            "completed"
+            if result["failed_pages"] == 0
+            else "completed_with_errors"
+        ),
+        "pages": result["pages"],
+    }
 if __name__ == "__main__":
-    main()
+    import uvicorn
+
+    uvicorn.run(
+        "app.main:app",
+        host="127.0.0.1",
+        port=8000,
+        reload=True
+    )

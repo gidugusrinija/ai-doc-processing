@@ -52,10 +52,11 @@ def process_pages_parallel(
 
                 results[page_index] = {
                     "page_index": page_index,
+                    "page_number": page.get("page_number", page_index + 1),
+                    "image_path": page.get("image_path"),
                     "status": "failed",
                     "error": str(exc),
                 }
-
     # Restore original PDF page order
     ordered_results = [
         results[page_index]

@@ -1,0 +1,37 @@
+[
+    {
+        "example_id": "example_001",
+        "image_path": "C:\\Users\\HP\\projects\\ai-doc-processing\\data\\fewshots\\example_001\\image.png",
+        "annotation_path": "C:\\Users\\HP\\projects\\ai-doc-processing\\data\\fewshots\\example_001\\output.json"
+    },
+    {
+        "example_id": "example_002",
+        "image_path": "C:\\Users\\HP\\projects\\ai-doc-processing\\data\\fewshots\\example_002\\image.png",
+        "annotation_path": "C:\\Users\\HP\\projects\\ai-doc-processing\\data\\fewshots\\example_002\\output.json"
+    },
+    {
+        "example_id": "example_003",
+        "image_path": "C:\\Users\\HP\\projects\\ai-doc-processing\\data\\fewshots\\example_003\\image.png",
+        "annotation_path": "C:\\Users\\HP\\projects\\ai-doc-processing\\data\\fewshots\\example_003\\output.json"
+    },
+    {
+        "example_id": "example_004",
+        "image_path": "C:\\Users\\HP\\projects\\ai-doc-processing\\data\\fewshots\\example_004\\image.png",
+        "annotation_path": "C:\\Users\\HP\\projects\\ai-doc-processing\\data\\fewshots\\example_004\\output.json"
+    },
+    {
+        "example_id": "example_005",
+        "image_path": "C:\\Users\\HP\\projects\\ai-doc-processing\\data\\fewshots\\example_005\\image.png",
+        "annotation_path": "C:\\Users\\HP\\projects\\ai-doc-processing\\data\\fewshots\\example_005\\output.json"
+    },
+    {
+        "example_id": "example_006",
+        "image_path": "C:\\Users\\HP\\projects\\ai-doc-processing\\data\\fewshots\\example_006\\image.png",
+        "annotation_path": "C:\\Users\\HP\\projects\\ai-doc-processing\\data\\fewshots\\example_006\\output.json"
+    },
+    {
+        "example_id": "example_007",
+        "image_path": "C:\\Users\\HP\\projects\\ai-doc-processing\\data\\fewshots\\example_007\\image.png",
+        "annotation_path": "C:\\Users\\HP\\projects\\ai-doc-processing\\data\\fewshots\\example_007\\output.json"
+    }
+]
